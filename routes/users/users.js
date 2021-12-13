@@ -36,7 +36,9 @@ const router = express.Router()
 
 const createUser = async (username) => {
   const newUser = await insertOne(USERS_COLLECTION_NAME, {
-    username
+    username,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   })
   return newUser
 }
